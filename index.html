@@ -692,6 +692,136 @@
                   Confirm You Ticket
                 </h2>
               </div>
+
+              <!-- Calculate Total Arae -->
+              <div class="bg-[#F7F8F8] p-8 rounded-xl mt-8 ml-4">
+                <div
+                  class="flex items-center justify-between pb-4 border-b border-dashed"
+                >
+                  <h4 class="flex items-center gap-2 text-xl font-semibold">
+                    Seat
+                    <span
+                      class="bg-[#1DD100] text-white p-2 rounded text-xs h-[20px] flex items-center justify-center"
+                    >
+                      0
+                    </span>
+                  </h4>
+                  <h4 class="text-xl font-semibold">Class</h4>
+                  <h4 class="text-xl font-semibold">Price</h4>
+                </div>
+
+                <!-- Ticket Cart -->
+                <div class="flex items-center justify-between py-4">
+                  <h4 class="font-sans text-[#03071288] font-medium">C2</h4>
+                  <h4 class="ml-16 font-sans text-[#03071288] font-medium">
+                    Economoy
+                  </h4>
+                  <h4 class="font-sans text-[#03071288] font-medium">550tk</h4>
+                </div>
+                <div class="flex items-center justify-between py-4">
+                  <h4 class="font-sans text-[#03071288] font-medium">C2</h4>
+                  <h4 class="ml-16 font-sans text-[#03071288] font-medium">
+                    Economoy
+                  </h4>
+                  <h4 class="font-sans text-[#03071288] font-medium">550tk</h4>
+                </div>
+
+                <!-- Price arae -->
+                <div class="border-t border-dashed">
+                  <!-- Total Price -->
+                  <div class="flex items-center justify-between">
+                    <h4 class="font-sans text-xl font-semibold">Total Price</h4>
+                    <h4
+                      id="total-price"
+                      class="font-sans text-xl font-semibold"
+                    >
+                      BDT 1100
+                    </h4>
+                  </div>
+
+                  <!-- Coupon apply -->
+                  <div class="flex my-6 bg-white rounded-xl">
+                    <input
+                      type="text"
+                      placeholder="Have any coupon?"
+                      class="w-full h-full p-5 bg-transparent outline-none"
+                    />
+                    <button
+                      id="apply_coupon"
+                      class="bg-[#1DD100] text-white font-semibold px-8 rounded-lg m-2"
+                    >
+                      Apply
+                    </button>
+                  </div>
+
+                  <!-- Grand Total -->
+                  <div class="flex items-center justify-between">
+                    <h4 class="font-sans text-xl font-semibold">Grand Total</h4>
+                    <h4
+                      id="grand-total"
+                      class="font-sans text-xl font-semibold"
+                    >
+                      BDT 1100
+                    </h4>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Passenger Information -->
+              <div class="p-8">
+                <form>
+                  <div class="flex flex-col">
+                    <label for="name" class="text-[#030712] font-semibold"
+                      >Passenger Name*</label
+                    >
+                    <input
+                      id="name"
+                      type="text"
+                      placeholder="Enter your name"
+                      class="p-4 mt-4 mb-8 border rounded-lg outline-none"
+                    />
+                  </div>
+                  <div class="flex flex-col">
+                    <label for="number" class="text-[#030712] font-semibold"
+                      >Passenger Number*</label
+                    >
+                    <input
+                      id="number"
+                      type="text"
+                      placeholder="Enter your phone number"
+                      class="p-4 mt-4 mb-8 border rounded-lg outline-none"
+                      required
+                    />
+                  </div>
+                  <div class="flex flex-col">
+                    <label for="email" class="text-[#030712] font-semibold"
+                      >Email ID</label
+                    >
+                    <input
+                      id="email"
+                      type="email"
+                      placeholder="Enter your email id"
+                      class="p-4 mt-4 mb-8 border rounded-lg outline-none"
+                    />
+                  </div>
+
+                  <button
+                    id="submit"
+                    class="w-full py-4 bg-[#1DD100] rounded-lg text-xl text-white font-semibold"
+                  >
+                    Next
+                  </button>
+                </form>
+
+                <div class="flex items-center my-8 justify-evenly">
+                  <p class="text-lg font-medium underline">
+                    Terms and Conditions
+                  </p>
+                  <p class="text-lg font-medium underline">
+                    Cancellation Policy
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
