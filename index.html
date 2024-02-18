@@ -1,13 +1,114 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Smart Ticketing</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header></header>
+    <header class="container relative mx-auto">
+      <!-- Navbar -->
+      <nav class="flex items-center justify-between p-5">
+        <h1 class="text-xl font-bold md:text-3xl">P-Ticket</h1>
+        <ul
+          class="hidden gap-10 text-[#030712B3] font-medium md:text-xl md:flex"
+        >
+          <li>Home</li>
+          <li>About</li>
+          <li>Destination</li>
+          <li>Search</li>
+        </ul>
+        <button
+          class="hidden items-center justify-center gap-2 px-8 py-4 bg-[#1cd1002d] rounded-xl border border-[#1DD100] md:flex"
+        >
+          <span class="text-[#1DD100] text-lg font-semibold">Bus</span>
+          <img src="./images/bus-icon.png" alt="bus-icon" />
+        </button>
+
+        <button class="flex btn btn-square btn-ghost md:hidden">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            class="inline-block w-5 h-5 stroke-current"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </button>
+      </nav>
+
+      <!-- Banner -->
+      <div
+        class="w-full min-h-[600px] rounded-[40px] bg-[url('./images/banner.png')] bg-no-repeat bg-bottom bg-cover flex items-center justify-center"
+      >
+        <div class="py-24 text-center">
+          <h2 class="text-3xl font-bold text-white md:text-6xl">
+            End-to-End Travel with <br />
+            <span class="text-[#1DD100]">P Paribahan</span>
+          </h2>
+          <p class="my-5 text-sm text-white max-w-[500px] mx-auto">
+            Yes, you can run unit tests and view the results directly within the
+            app. The integrated testing features allow for a streamlined .
+          </p>
+
+          <button class="my-5">
+            <a
+              href="#"
+              class="bg-[#1DD100] text-[#030712] font-bold py-4 px-8 rounded-xl text-xl cursor-pointer"
+            >
+              Buy Tickets</a
+            >
+          </button>
+        </div>
+      </div>
+
+      <!-- Card Area -->
+      <div
+        class="absolute flex flex-wrap items-center justify-center w-full gap-12 lg:-bottom-14"
+      >
+        <!-- Card -->
+        <div
+          class="flex flex-col gap-5 p-8 bg-white rounded-2xl border-b-4 border-[#1DD100] md:flex-row"
+        >
+          <img src="./images/people.png" alt="img" />
+          <div>
+            <h2 class="text-4xl font-bold">500K+</h2>
+            <p>Registered users</p>
+          </div>
+        </div>
+        <div
+          class="flex flex-col gap-5 p-8 bg-white rounded-2xl border-b-4 border-[#1DD100] md:flex-row"
+        >
+          <img src="./images/ticket-cupon.png" alt="img" />
+          <div>
+            <h2 class="text-4xl font-bold">1.7 lacks</h2>
+            <p>Tickets sold</p>
+          </div>
+        </div>
+        <div
+          class="flex flex-col gap-5 p-8 bg-white rounded-2xl border-b-4 border-[#1DD100] md:flex-row"
+        >
+          <img src="./images/stoppage.png" alt="img" />
+          <div>
+            <h2 class="text-4xl font-bold">80K+</h2>
+            <p>Rental partners</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
     <main></main>
     <footer></footer>
 
