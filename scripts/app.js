@@ -33,7 +33,7 @@ function setInnerTextValue(id, value) {
   document.getElementById(id).innerText = value;
 }
 
-function AddBackgroundById(elementId) {
+function addBackgroundById(elementId) {
   const element = document.getElementById(elementId);
 
   element.classList.add("bg-[#1DD100]", "text-[#fff]");
@@ -43,7 +43,6 @@ function AddBackgroundById(elementId) {
 for (const seatCard of seatCardList) {
   seatCard.addEventListener("click", function (e) {
     const seat = e.target.innerText;
-
     const seatId = e.target.id;
 
     if (seatCount < 4) {
@@ -59,7 +58,7 @@ for (const seatCard of seatCardList) {
 
       ticketPrice = ticketPrice + 550;
 
-      AddBackgroundById(seatId);
+      addBackgroundById(seatId);
     } else {
       alert("You Can Only Select 4 seat at a time!!");
     }
@@ -69,7 +68,7 @@ for (const seatCard of seatCardList) {
 function applyCoupon() {
   const coupon = couponCode.value;
 
-  if (coupon === "NEW15") {
+  if (coupon === "NEW15" || coupon === "Couple20") {
     const totalPriceText = document.getElementById("total-price");
     const grandTotalText = document.getElementById("grand-total");
     const couponContainer = document.getElementById("coupon_input_container");
@@ -79,22 +78,7 @@ function applyCoupon() {
       return alert("Please Select A Seat");
     }
 
-    const discount = (totalPrice / 100) * 15;
-    const grandPrice = totalPrice - discount;
-
-    grandTotalText.innerText = grandPrice;
-    couponContainer.classList.add("hidden");
-  } else if (coupon === "Couple20") {
-    const totalPriceText = document.getElementById("total-price");
-    const grandTotalText = document.getElementById("grand-total");
-    const couponContainer = document.getElementById("coupon_input_container");
-    const totalPrice = parseInt(totalPriceText.innerText);
-
-    if (totalPrice <= 0) {
-      return alert("Please Select A Seat");
-    }
-
-    const discount = (totalPrice / 100) * 20;
+    const discount = (totalPrice / 100) * (coupon === "NEW15" ? 15 : 20);
     const grandPrice = totalPrice - discount;
 
     grandTotalText.innerText = grandPrice;
@@ -109,12 +93,37 @@ const number = document.getElementById("number");
 const email = document.getElementById("email");
 const submitBtn = document.getElementById("submit-btn");
 
-email.addEventListener("change", function () {
+function enableSubmitBtn() {
   submitBtn.classList.remove("cursor-not-allowed");
   submitBtn.removeAttribute("disabled");
-});
+}
 
-if (passengerName.value == "" || number.length < 10 || email == "") {
+function disableSubmitBtn() {
   submitBtn.classList.add("cursor-not-allowed");
   submitBtn.setAttribute("disabled", "true");
 }
+
+function isFormValid() {
+  return (
+    passengerName.value !== "" &&
+    number.value !== "" &&
+    number.value.length >= 10 &&
+    email.value !== ""
+  );
+}
+
+function updateSubmitBtnState() {
+  if (isFormValid()) {
+    enableSubmitBtn();
+  } else {
+    disableSubmitBtn();
+  }
+}
+
+// Initial state check
+updateSubmitBtnState();
+
+// Event listeners for input events
+passengerName.addEventListener("input", updateSubmitBtnState);
+number.addEventListener("input", updateSubmitBtnState);
+email.addEventListener("input", updateSubmitBtnState);
