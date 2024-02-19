@@ -237,7 +237,7 @@
                   class="flex gap-2 bg-[#1cd1002a] px-8 py-4 rounded-xl text-[#1DD100] font-sans text-xl font-semibold"
                 >
                   <img src="./images/seat-green.png" alt="" />
-                  <span id="seats-count">40</span> <span>Seats left</span>
+                  <span id="available-seats"></span> <span>Seats left</span>
                 </button>
               </div>
 
@@ -322,8 +322,7 @@
                   class="flex gap-2 px-8 py-4 rounded-xl text-[#1DD100] font-sans text-xl font-semibold"
                 >
                   <img src="./images/seat-green-filled.png" alt="seat" />
-                  <span>0</span>
-                  <span>Selected</span>
+                  <span>Selecte Your Seat</span>
                 </button>
               </div>
               <!-- bottom area -->
@@ -385,7 +384,7 @@
                       </button>
                       <button
                         id="b2"
-                        class="seat_card min-w-[150px] h-[56px] bg-[#1DD100] rounded-xl font-sans text-3xl text-[#fff] uppercase"
+                        class="seat_card min-w-[150px] h-[56px] bg-[#0307121a] rounded-xl font-sans text-3xl text-[#03071273] uppercase"
                       >
                         b2
                       </button>
@@ -708,6 +707,7 @@
                   <h4 class="flex items-center gap-2 text-xl font-semibold">
                     Seat
                     <span
+                      id="seat-selected-count"
                       class="bg-[#1DD100] text-white p-2 rounded text-xs h-[20px] flex items-center justify-center"
                     >
                       0
@@ -725,23 +725,21 @@
                   <!-- Total Price -->
                   <div class="flex items-center justify-between pt-4">
                     <h4 class="font-sans text-xl font-semibold">Total Price</h4>
-                    <h4
-                      id="total-price"
-                      class="font-sans text-xl font-semibold"
-                    >
-                      BDT 1100
+                    <h4 class="font-sans text-xl font-semibold">
+                      BDT <span id="total-price">0</span>
                     </h4>
                   </div>
 
                   <!-- Coupon apply -->
                   <div class="flex my-6 bg-white rounded-xl">
                     <input
+                      id="input_coupon"
                       type="text"
                       placeholder="Have any coupon?"
                       class="w-full h-full p-5 bg-transparent outline-none"
                     />
                     <button
-                      id="apply_coupon"
+                      onclick="applyCoupon()"
                       class="bg-[#1DD100] text-white font-semibold px-8 rounded-lg m-2"
                     >
                       Apply
@@ -751,11 +749,8 @@
                   <!-- Grand Total -->
                   <div class="flex items-center justify-between">
                     <h4 class="font-sans text-xl font-semibold">Grand Total</h4>
-                    <h4
-                      id="grand-total"
-                      class="font-sans text-xl font-semibold"
-                    >
-                      BDT 1100
+                    <h4 class="font-sans text-xl font-semibold">
+                      BDT <span id="grand-total">0</span>
                     </h4>
                   </div>
                 </div>
