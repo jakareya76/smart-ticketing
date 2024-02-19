@@ -8,6 +8,38 @@ let ticketPrice = 550;
 document.getElementById("available-seats").innerText = ticketAvailable;
 document.getElementById("seat-selected-count").innerText = seatCount;
 
+function createTicketCartElement(value, seatId) {
+  const ticketCartContainer = document.getElementById("ticket-cart");
+
+  const element = document.createElement("div");
+  element.classList.add("flex", "items-center", "justify-between", "py-4");
+
+  element.innerHTML = `
+        <h4 class="font-sans text-[#03071288] font-medium" id="${seatId}">
+           ${value}
+        </h4>
+        <h4 class="ml-16 font-sans text-[#03071288] font-medium">
+            Economy
+        </h4>
+        <h4 class="font-sans text-[#03071288] font-medium">
+            550tk
+        </h4>
+    `;
+
+  ticketCartContainer.appendChild(element);
+}
+
+function setInnerTextValue(id, value) {
+  document.getElementById(id).innerText = value;
+}
+
+function AddBackgroundById(elementId) {
+  const element = document.getElementById(elementId);
+
+  element.classList.add("bg-[#1DD100]", "text-[#fff]");
+  element.classList.remove("bg-[#0307121a]", "text-[#03071273]");
+}
+
 for (const seatCard of seatCardList) {
   seatCard.addEventListener("click", function (e) {
     const seat = e.target.innerText;
@@ -38,6 +70,51 @@ function applyCoupon() {
   const coupon = couponCode.value;
 
   if (coupon === "NEW15") {
-    console.log(coupon);
+    const totalPriceText = document.getElementById("total-price");
+    const grandTotalText = document.getElementById("grand-total");
+    const couponContainer = document.getElementById("coupon_input_container");
+    const totalPrice = parseInt(totalPriceText.innerText);
+
+    if (totalPrice <= 0) {
+      return alert("Please Select A Seat");
+    }
+
+    const discount = (totalPrice / 100) * 15;
+    const grandPrice = totalPrice - discount;
+
+    grandTotalText.innerText = grandPrice;
+    couponContainer.classList.add("hidden");
+  } else if (coupon === "Couple20") {
+    const totalPriceText = document.getElementById("total-price");
+    const grandTotalText = document.getElementById("grand-total");
+    const couponContainer = document.getElementById("coupon_input_container");
+    const totalPrice = parseInt(totalPriceText.innerText);
+
+    if (totalPrice <= 0) {
+      return alert("Please Select A Seat");
+    }
+
+    const discount = (totalPrice / 100) * 20;
+    const grandPrice = totalPrice - discount;
+
+    grandTotalText.innerText = grandPrice;
+    couponContainer.classList.add("hidden");
+  } else {
+    alert("Please Provide A Valid Coupon Code");
   }
+}
+
+const passengerName = document.getElementById("name");
+const number = document.getElementById("number");
+const email = document.getElementById("email");
+const submitBtn = document.getElementById("submit-btn");
+
+email.addEventListener("change", function () {
+  submitBtn.classList.remove("cursor-not-allowed");
+  submitBtn.removeAttribute("disabled");
+});
+
+if (passengerName.value == "" || number.length < 10 || email == "") {
+  submitBtn.classList.add("cursor-not-allowed");
+  submitBtn.setAttribute("disabled", "true");
 }
